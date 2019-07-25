@@ -20,23 +20,11 @@ oes.ui.explanation = {};
 sim.model.name = "04-PurchasingModel";
 sim.model.title = "Purchasing Model (4)";
 sim.model.systemNarrative =
-  "<p>An Entrepreneur is selling one product type only, such that its " +
-  "in-house inventory only consists of items of that type. On each " +
-  "business day, customers come to the shop and place their orders. If " +
-  "the ordered product quantity is in stock, the customer pays for the " +
-  "order and the ordered products are provided. Otherwise, the " +
-  "Entrepreneur has missed a business opportunity and the difference " +
-  "between order quantity and the inventory level counts as a lost " +
-  "sale. The order may still be partially fulfilled, if there are " +
-  "still some items in stock, else the customer receives no item.</p>";
+  "<p>The model represents a simple purchase order transaction of a single type of item between Enterprises and Consumers.<br/> On each day, Enterprises produce a quantity of a single type of item and update the unit item price, and Consumers decide whether to order new items. If so, they decide which Enterprise to purchase from the Enterprise with the lowest item price in its list of preferred Enterprises and the quantity of items to purchase.<br/> If the ordered quantity of items is in stock, the Enterprise delivers the items to the Consumer. Otherwise, the Enterprise delivers the quantity of products it has in stock and registers the remaining quantity as lost sales.</p>";
 sim.model.shortDescription =
-  "<p>The model defines an simple purchase transaction for a single " +
-  "product enterprise. For simplicity, customer orders are treated " +
-  "in an abstract way by aggregating all of them into a single " +
-  "demand, such that the random variation of the daily order " +
-  "quantity is modeled by a random variable.</p>";
+  "<p>The 04-PurchasingModel model implements multiple Enterprises that produce and sell one single type of item and multiple Consumers that purchase items from the Enterprises. On each day, the Enterprises generate a <b>Produce event</b> to produce a finite quantity of items and the Consumers generate a <b>DecidePurchase event</b> that may generate a <b>Purchase event</b> with <b>a configured probability</b> to order a specific quantity of items from the Enterprise with the lowest price in its preferred list. If the ordered quantity is in stock, the Enterprise delivers the quantity items to the Consumer and the order is fulfilled. Otherwise, the Enterprise delivers the quantity of items in stock to the Consumer (i.e., order is partially fulfilled) and registers the non-fulfilled quantity as lost sales, and the Consumer replace the Enterprise from its preferred list by another Enterprise.</p>";
 sim.model.source = "";
 sim.model.license = "CC BY-NC";
 sim.model.creator = "Luis Gustavo Nardin";
 sim.model.created = "2019-06-01";
-sim.model.modified = "2019-07-19";
+sim.model.modified = "2019-07-25";
